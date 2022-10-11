@@ -6,16 +6,35 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 00:16:25 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/10 00:16:40 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/10/11 21:48:15 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"fractol.h"
 
-int	ft_atoi(const char *nptr)
+double	ft_add_decimal(const char *nptr, double sign, double val)
 {
-	int	sign;
-	int	val;
+	double	val2;
+	double	len;
+
+	len = 0;
+	while (*nptr >= '0' && *nptr <= '9')
+	{
+		val2 = (val2 * 10) + (*nptr - 48);
+		nptr++;
+		len++;
+	}
+	while (len--)
+	{
+		val2 /= 10.0;
+	}
+	return (sign * (val + val2));
+}
+
+double	ft_atoi(const char *nptr)
+{
+	double	sign;
+	double	val;
 
 	if (*nptr == '\0')
 		return (0);
@@ -34,5 +53,7 @@ int	ft_atoi(const char *nptr)
 		val = (val * 10) + (*nptr - 48);
 		nptr++;
 	}
+	if (*nptr == '.')
+		return (ft_add_decimal(++nptr, sign, val));
 	return (sign * val);
 }

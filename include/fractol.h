@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:10:08 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/11 13:34:33 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/10/11 21:42:22 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ int		ft_putstr_fd(char *str, int fd);
 int		ft_strlen(const char *str);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 void	*ft_calloc(size_t nmeb, size_t size);
-int		ft_atoi(const char *nptr);
+double	ft_atoi(const char *nptr);
 
 //hooks.c
 int		keyhooks(int key, t_vars *env);
