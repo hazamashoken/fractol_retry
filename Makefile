@@ -6,7 +6,7 @@
 #    By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 00:32:16 by tliangso          #+#    #+#              #
-#    Updated: 2022/10/11 13:19:49 by tliangso         ###   ########.fr        #
+#    Updated: 2022/10/11 13:45:36 by tliangso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,6 +85,7 @@ WHITE	= \033[1;37m
 
 ### TMP ###
 ARGS = 60
+MSG = "Upload to git"
 
 ### RULES ###
 .c.o:
@@ -133,7 +134,7 @@ norm:
 gitpush:
 	git add .
 	git status
-	git commit -m ${NAME}
+	git commit -m ${MSG}
 	git push
 
 help:
