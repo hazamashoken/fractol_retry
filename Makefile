@@ -6,7 +6,7 @@
 #    By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 00:32:16 by tliangso          #+#    #+#              #
-#    Updated: 2022/10/11 13:45:36 by tliangso         ###   ########.fr        #
+#    Updated: 2022/10/11 13:49:30 by tliangso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,12 +68,11 @@ else
 						-I$(MLX_DIR)
 endif
 
-### COMPILATION ### #-Lmlx_linux -lmlx_Linux -L/usr/local/lib -Imlx_linux -lXext -lX11 -lm -lz
+### COMPILATION ###
 CC		= gcc
 RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror -g
-#MINILIBX_OBJ_FLAG = -I/usr/local/include -Imlx_linux -O3
-#MINILIBX_CC_FLAGS = -Lmlx_linux -lmlx_Linux -L/usr/local/lib -Imlx_linux -lXext -lX11 -lm -lz
+
 
 ### COLORS ###
 NOC		= \033[0m
@@ -134,7 +133,7 @@ norm:
 gitpush:
 	git add .
 	git status
-	git commit -m ${MSG}
+	git commit -m "${MSG}"
 	git push
 
 help:
