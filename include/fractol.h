@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:10:08 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/11 12:33:16 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/10/11 13:34:33 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 
 # if __linux__
 #  include "keys_linux.h"
+# else
+#  include "keys_macos.h"
 # endif
 
 typedef unsigned char	t_unchar;
