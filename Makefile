@@ -6,7 +6,7 @@
 #    By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 00:32:16 by tliangso          #+#    #+#              #
-#    Updated: 2022/10/11 12:53:30 by tliangso         ###   ########.fr        #
+#    Updated: 2022/10/11 13:19:49 by tliangso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,10 @@ NAME		= fractol
 
 
 ### DIR ###
-DIRSRC		= ./
-BONUS_SRC	= ./
-HEAD		= ./
-LIBFT_SRC	= ./
+DIRSRC		= src/
+BONUS_SRC	= fractol_set/
+HEAD		= include/
+LIBFT_SRC	= libft/
 SHARE_SRC	= ./
 
 ### TESTER GIT URL ###
@@ -29,9 +29,9 @@ TESTER4		=
 
 ### SOURCE FILE ###
 SRC		=	fractol.c color.c hooks.c zoom.c utils.c color_utils.c \
-			initiator.c julia.c render.c mandelbrot.c burning_ship.c tricorn.c mandelbox.c
+			initiator.c render.c
 
-BONUS	=
+BONUS	=	julia.c mandelbrot.c burning_ship.c tricorn.c mandelbox.c
 
 SHARE	=
 
@@ -53,28 +53,19 @@ SHARE_OBJS	= ${SHARE_SRCS:.c=.o}
 
 UNAME = $(shell uname -s)
 ifeq ($(UNAME), Linux)
-	SRCS_PLATFORM = game_Linux.c
 	MLX_DIR		= mlx_Linux
 	MINILIBX_CC_FLAGS	= -Imlx_Linux -Lmlx_Linux -lmlx_Linux -lXext -lX11 -lm -lz
-	MINILIBX_OBJ_FLAG 	= -I$(INCLUDE_DIR) \
-				  -I$(LIBFT_DIR) \
-				  -I$(PRINTF_DIR) \
-				  -I/usr/include
-	LIBS		= -L$(LIBFT_DIR) -lft \
-				  -L$(PRINTF_DIR) -lftprintf \
-				  -L/usr/lib
+	MINILIBX_OBJ_FLAG 	= -I$(HEAD) \
+						-I$(LIBFT_DIR) \
+						-I/usr/include
+	LIBS		= -L/usr/lib
 else
-	SRCS_PLATFORM = game_Macos.c
 	MLX_DIR		= mlx
 	MINILIBX_CC_FLAGS	= -L$(MLX_DIR) -lmlx \
 				  -framework OpenGL \
 				  -framework AppKit
-	MINILIBX_OBJ_FLAG 	= -I$(INCLUDE_DIR) \
-				  -I$(LIBFT_DIR) \
-				  -I$(PRINTF_DIR) \
-				  -I$(MLX_DIR)
-	LIBS		= -L$(LIBFT_DIR) -lft \
-				  -L$(PRINTF_DIR) -lftprintf
+	MINILIBX_OBJ_FLAG 	= -I$(HEAD) \
+						-I$(MLX_DIR)
 endif
 
 ### COMPILATION ### #-Lmlx_linux -lmlx_Linux -L/usr/local/lib -Imlx_linux -lXext -lX11 -lm -lz
@@ -103,9 +94,9 @@ ARGS = 60
 all: ${NAME} print_option
 
 
-${NAME}:	${OBJS} ${LIBFT_OBJS} ${SHARE_OBJS}
+${NAME}:	${OBJS} ${LIBFT_OBJS} ${SHARE_OBJS} ${BONUS_OBJS}
 
-	@${CC} ${CFLAGS} ${OBJS} ${LIBFT_OBJS} ${SHARE_OBJS} ${MINILIBX_CC_FLAGS} -o ${NAME}
+	@${CC} ${CFLAGS} ${OBJS} ${LIBFT_OBJS} ${SHARE_OBJS} ${BONUS_OBJS} ${MINILIBX_CC_FLAGS} -o ${NAME}
 	@echo "$(GREEN)$@$(NOC)"
 
 bonus:		${BONUS_OBJS} ${LIBFT_OBJS} ${SHARE_OBJS}
