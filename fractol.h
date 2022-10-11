@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:10:08 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/10 00:39:02 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/10/11 12:33:16 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,13 @@
 # include <math.h>
 # include <stdio.h>
 
-# include "keys.h"
 # include "setting.h"
 
 # define PI 3.1415926535
+
+# if __linux__
+#  include "keys_linux.h"
+# endif
 
 typedef unsigned char	t_unchar;
 

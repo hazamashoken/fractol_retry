@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   keys.h                                             :+:      :+:    :+:   */
+/*   keys_linux.h                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 16:33:49 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/09 00:17:52 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/10/11 12:33:45 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef KEYS_H
-# define KEYS_H
+#ifndef KEYS_LINUX_H
+# define KEYS_LINUX_H
 
 //number keycode
 # define KEY_ZERO 48

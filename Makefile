@@ -6,7 +6,7 @@
 #    By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 00:32:16 by tliangso          #+#    #+#              #
-#    Updated: 2022/10/11 11:58:55 by tliangso         ###   ########.fr        #
+#    Updated: 2022/10/11 12:53:30 by tliangso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,10 +51,38 @@ EXRTA_OBJS	= ${EXTRA_SRCS:.c=.o}
 LIBFT_OBJS	= ${LIBFT_SRCS:.c=.o}
 SHARE_OBJS	= ${SHARE_SRCS:.c=.o}
 
-### COMPILATION ###
+UNAME = $(shell uname -s)
+ifeq ($(UNAME), Linux)
+	SRCS_PLATFORM = game_Linux.c
+	MLX_DIR		= mlx_Linux
+	MINILIBX_CC_FLAGS	= -Imlx_Linux -Lmlx_Linux -lmlx_Linux -lXext -lX11 -lm -lz
+	MINILIBX_OBJ_FLAG 	= -I$(INCLUDE_DIR) \
+				  -I$(LIBFT_DIR) \
+				  -I$(PRINTF_DIR) \
+				  -I/usr/include
+	LIBS		= -L$(LIBFT_DIR) -lft \
+				  -L$(PRINTF_DIR) -lftprintf \
+				  -L/usr/lib
+else
+	SRCS_PLATFORM = game_Macos.c
+	MLX_DIR		= mlx
+	MINILIBX_CC_FLAGS	= -L$(MLX_DIR) -lmlx \
+				  -framework OpenGL \
+				  -framework AppKit
+	MINILIBX_OBJ_FLAG 	= -I$(INCLUDE_DIR) \
+				  -I$(LIBFT_DIR) \
+				  -I$(PRINTF_DIR) \
+				  -I$(MLX_DIR)
+	LIBS		= -L$(LIBFT_DIR) -lft \
+				  -L$(PRINTF_DIR) -lftprintf
+endif
+
+### COMPILATION ### #-Lmlx_linux -lmlx_Linux -L/usr/local/lib -Imlx_linux -lXext -lX11 -lm -lz
 CC		= gcc
 RM		= rm -f
 CFLAGS	= -Wall -Wextra -Werror -g
+#MINILIBX_OBJ_FLAG = -I/usr/local/include -Imlx_linux -O3
+#MINILIBX_CC_FLAGS = -Lmlx_linux -lmlx_Linux -L/usr/local/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 ### COLORS ###
 NOC		= \033[0m
@@ -69,7 +97,7 @@ ARGS = 60
 
 ### RULES ###
 .c.o:
-	@$(CC) ${CFLAGS} -D MAXINTER=${ARGS} -I/usr/local/include -Imlx_linux -O3 -c $< -o $@
+	@$(CC) ${CFLAGS} -D MAXINTER=${ARGS} ${MINILIBX_OBJ_FLAG} -c $< -o $@
 	@echo "$(BLUE)clang $(WHITE)$(notdir $@)$(NOC)"
 
 all: ${NAME} print_option
@@ -77,7 +105,7 @@ all: ${NAME} print_option
 
 ${NAME}:	${OBJS} ${LIBFT_OBJS} ${SHARE_OBJS}
 
-	@${CC} ${CFLAGS} ${OBJS} ${LIBFT_OBJS} ${SHARE_OBJS}  -Lmlx_linux -lmlx_Linux -L/usr/local/lib -Imlx_linux -lXext -lX11 -lm -lz -o ${NAME}
+	@${CC} ${CFLAGS} ${OBJS} ${LIBFT_OBJS} ${SHARE_OBJS} ${MINILIBX_CC_FLAGS} -o ${NAME}
 	@echo "$(GREEN)$@$(NOC)"
 
 bonus:		${BONUS_OBJS} ${LIBFT_OBJS} ${SHARE_OBJS}
