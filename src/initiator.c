@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 21:27:15 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/10 00:43:39 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/10/13 22:33:31 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,14 @@ void	init_fractol(t_vars *env)
 		env->fractol.min_r = -2.0;
 		env->fractol.max_r = 2.0;
 		env->fractol.min_i = -2.0;
+		env->fractol.max_i = env->fractol.min_i
+			+ (env->fractol.max_r - env->fractol.min_r) * HEIGHT / WIDTH;
+	}
+	else if (env->fract == MANDELBOX)
+	{
+		env->fractol.min_r = -4.0;
+		env->fractol.max_r = 4.0;
+		env->fractol.min_i = -4.0;
 		env->fractol.max_i = env->fractol.min_i
 			+ (env->fractol.max_r - env->fractol.min_r) * HEIGHT / WIDTH;
 	}

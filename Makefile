@@ -6,7 +6,7 @@
 #    By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/14 00:32:16 by tliangso          #+#    #+#              #
-#    Updated: 2022/10/11 13:49:30 by tliangso         ###   ########.fr        #
+#    Updated: 2022/10/13 22:35:05 by tliangso         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,7 +84,7 @@ WHITE	= \033[1;37m
 
 ### TMP ###
 ARGS = 60
-MSG = "Upload to git"
+MSG = Upload to git
 
 ### RULES ###
 .c.o:
