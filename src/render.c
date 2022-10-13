@@ -6,13 +6,11 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 20:11:40 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/11 21:13:08 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/10/13 22:05:48 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"fractol.h"
-#include "setting.h"
-#include <mlx.h>
 
 int	calc_fractol(t_vars *env, double pr, double pi)
 {

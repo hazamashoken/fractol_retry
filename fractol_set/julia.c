@@ -6,12 +6,11 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/08 19:57:53 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/09 00:43:48 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/10/13 22:06:16 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fractol.h"
-#include "setting.h"
 
 int	julia_shift(int x, int y, t_vars *env)
 {

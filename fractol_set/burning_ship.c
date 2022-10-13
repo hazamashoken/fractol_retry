@@ -6,12 +6,11 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/09 10:22:26 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/09 10:22:44 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/10/13 22:06:18 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"fractol.h"
-#include "setting.h"
 
 int	burning_ship(double cr, double ci)
 {
