@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/07 15:15:35 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/11 21:49:18 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/10/16 12:00:58 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,16 +54,16 @@ void	set_julia(t_vars *env, int argc, char **argv)
 		env->fractol.kr = ft_atoi(argv[2]);
 		env->fractol.ki = ft_atoi(argv[3]);
 	}
-	if (env->fractol.kr > 2.0 && env->fractol.kr < -2.0)
+	if (env->fractol.kr > 2.0 || env->fractol.kr < -2.0)
 	{
 		ft_putstr_fd("\033[1;33merror your real world is \
-			out of range (1.99 to -1.99).\n", 2);
+			out of range (2.00 to -2.00).\n", 2);
 		exit(EXIT_FAILURE);
 	}
-	if (env->fractol.ki >= 2.0 && env->fractol.ki <= -2.0)
+	if (env->fractol.ki >= 2.0 || env->fractol.ki <= -2.0)
 	{
 		ft_putstr_fd("\033[1;33merror your imaginary world is \
-			out of range (2.00 to -2.00).\n", 2);
+			out of range (1.99 to -1.99).\n", 2);
 		exit(EXIT_FAILURE);
 	}
 }

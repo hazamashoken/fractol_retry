@@ -6,7 +6,7 @@
 /*   By: tliangso <earth78203@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 00:16:25 by tliangso          #+#    #+#             */
-/*   Updated: 2022/10/11 21:48:15 by tliangso         ###   ########.fr       */
+/*   Updated: 2022/10/16 11:58:44 by tliangso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ double	ft_add_decimal(const char *nptr, double sign, double val)
 	double	len;
 
 	len = 0;
+	val2 = 0;
 	while (*nptr >= '0' && *nptr <= '9')
 	{
 		val2 = (val2 * 10) + (*nptr - 48);
